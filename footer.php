@@ -53,7 +53,7 @@
 			echo esc_html(
 				get_theme_mod(
 					'elica-bootstrap_footer_copyright',
-					'© ' . gmdate( 'Y' ) . ' Elica-Bootstrap. All rights reserved.'
+					'© ' . date_i18n( 'Y' ) . ' Elica-Bootstrap. All rights reserved.'
 				)
 			);
 			?>
