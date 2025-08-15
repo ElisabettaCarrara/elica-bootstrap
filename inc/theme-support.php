@@ -85,14 +85,14 @@ if ( ! function_exists('elica_bootstrap_footer_customizer') ) {
         );
 
         // Footer Copyright Text.
-        $wp_customize->add_setting(
-            'elica_bootstrap_footer_copyright',
-            array(
-                'default'           => '© ' . date('Y') . ' Elica-Bootstrap. All rights reserved.',
-                'sanitize_callback' => 'sanitize_text_field',
-                'type'              => 'theme_mod',
-            )
-        );
+$wp_customize->add_setting(
+    'elica_bootstrap_footer_copyright',
+    array(
+        'default'           => '© ' . date_i18n( 'Y' ) . ' Elica-Bootstrap. All rights reserved.',
+        'sanitize_callback' => 'sanitize_text_field',
+        'type'              => 'theme_mod',
+    )
+);
         $wp_customize->add_control(
             'elica_bootstrap_footer_copyright_control',
             array(
