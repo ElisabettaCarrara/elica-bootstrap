@@ -17,7 +17,6 @@
 					?>
 				</a>
 			</div>
-
 			<!-- Menu Column 1 -->
 			<div class="footer-column">
 				<h4><?php echo esc_html( get_theme_mod( 'elica-bootstrap_footer_menu_title_1', 'Footer menu Title One' ) ); ?></h4>
@@ -29,7 +28,6 @@
 				) );
 				?>
 			</div>
-
 			<!-- Menu Column 2 -->
 			<div class="footer-column">
 				<h4><?php echo esc_html( get_theme_mod( 'elica-bootstrap_footer_menu_title_2', 'Footer menu Title Two' ) ); ?></h4>
@@ -41,7 +39,6 @@
 				) );
 				?>
 			</div>
-
 			<!-- Text/Info Column -->
 			<div class="footer-column">
 				<h4><?php echo esc_html( get_theme_mod( 'elica-bootstrap_footer_description_title', 'Footer Description' ) ); ?></h4>
@@ -49,7 +46,6 @@
 			</div>
 		</div>
 	</div>
-
 	<!-- Copyright -->
 	<div class="footer-bottom">
 		<p>
@@ -57,15 +53,13 @@
 			echo esc_html(
 				get_theme_mod(
 					'elica-bootstrap_footer_copyright',
-					'© ' . date( 'Y' ) . ' Elica-Bootstrap. All rights reserved.'
+					'© ' . gmdate( 'Y' ) . ' Elica-Bootstrap. All rights reserved.'
 				)
 			);
 			?>
 		</p>
 	</div>
 </footer>
-
 <?php wp_footer(); ?>
-
 </body>
 </html>
