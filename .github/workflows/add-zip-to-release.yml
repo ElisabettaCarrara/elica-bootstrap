@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4 # Or @v5 if desired
       - name: setup git config
         run: |
           git config user.name "GitHub Actions Bot"
@@ -17,14 +17,8 @@ jobs:
         run: |
           git archive -o ${{ github.event.repository.name }}-${{ github.ref_name }}.zip --prefix ${{ github.event.repository.name }}/ HEAD
           ls
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4 # Updated to v4!
-        with:
-          name: ${{ github.event.repository.name }}-${{ github.ref_name }}
-          path: ${{ github.event.repository.name }}-${{ github.ref_name }}.zip
       - name: Upload to release
-        uses: JasonEtco/upload-to-release@master
+        uses: shogo82148/actions-upload-release-asset@v1
         with:
-          args: ${{ github.event.repository.name }}-${{ github.ref_name }}.zip application/zip
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ${{ github.event.repository.name }}-${{ github.ref_name }}.zip
