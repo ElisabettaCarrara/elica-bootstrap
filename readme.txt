@@ -2,7 +2,7 @@
 Contributors: Elisabetta Carrara
 Tags: blog, news, personal, simple, customizer, responsive, translation-ready, RTL, accessibility-ready
 Version: 1.0
-Requires CP: 2.4.1
+Requires at least: 2.4.1
 Tested up to: 2.4.1
 Requires PHP: 8.2
 License: GNU General Public License v2 or later
