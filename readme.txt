@@ -1,4 +1,4 @@
-= Elica-Bootstrap = Contributors: Elisabetta Carrara Tags: blog, news, personal, simple, customizer, responsive, translation-ready, RTL, accessibility-ready Version: 1.1 Requires CP: 2.0 Tested up to: 2.4.1 Requires PHP: 8.2 License: GNU General Public License v2 or later License URI: https://www.gnu.org/licenses/gpl-2.0.html
+= Elica-Bootstrap = Contributors: Elisabetta Carrara Tags: blog, news, personal, simple, customizer, responsive, translation-ready, RTL, accessibility-ready Version: 1.1 Requires PHP: 8.2 Requires CP: 2.0 Tested up to: 2.4.1 License: GNU General Public License v2 or later License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Elica-Bootstrap is a clean and lightweight ClassicPress theme. Perfect for personal blogs, portfolios, news sites, and content-focused websites. It is responsive, customizable, and supports RTL and translations.
 
