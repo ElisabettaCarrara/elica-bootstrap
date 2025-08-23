@@ -37,12 +37,17 @@ if ( ! function_exists('elica_bootstrap_theme_support') ) {
 
         // Enable custom header with default text color and header text shown.
         add_theme_support(
-            'custom-header',
-            array(
-                'default-text-color' => '000000',
-                'header-text'        => true,
-            )
-        );
+    'custom-header',
+    array(
+        'default-text-color' => '000000',
+        'header-text'        => true,
+        'height'             => 300, // recommended height (change as needed)
+        'width'              => 1200, // recommended width (change as needed)
+        'flex-height'        => true,
+        'flex-width'         => true,
+    )
+);
+
     }
 }
 
