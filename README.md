@@ -2,7 +2,7 @@
 = Elica-Bootstrap =
 Contributors: Elisabetta Carrara
 Tags: blog, news, personal, simple, customizer, responsive, translation-ready, RTL, accessibility-ready
-Version: 1.0
+Version: 1.1
 Requires CP: 2.0
 Tested up to: 2.4.1
 Requires PHP: 8.2
@@ -42,6 +42,8 @@ Yes. Elica-Bootstrap is designed for personal blogs, news, portfolios, and other
 Yes. A `.pot` file is included for easy translation.
 
 == Changelog ==
+= 1.1 =
+* Add screenshot
 = 1.0.0 =
 * Initial release
 
