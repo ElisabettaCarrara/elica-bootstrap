@@ -4,7 +4,7 @@
 
 Contributors: Elisabetta Carrara
 Tags: blog, news, personal, simple, customizer, responsive, translation-ready, RTL, accessibility-ready
-Version: 1.1
+Version: 1.2
 Requires PHP: 8.2
 Requires CP: 2.0
 Tested up to: 2.4.1
@@ -38,10 +38,17 @@ Elica-Bootstrap includes a custom header and footer via the ClassicPress Customi
 
 = Is the theme translation-ready? = Yes. A .pot file is included for easy translation.
 
-== Changelog == = 1.1 =
+== Changelog ==
 
-    Add screenshot = 1.0.0 =
-    Initial release
+= 1.2 =
+Corrected issues with Header Image and Header Background
+Corrected placement of Search Pop-up Icon in menu
+
+= 1.1 =
+Add screenshot
+
+= 1.0.0 =
+Initial release
 
 == Credits ==
 
