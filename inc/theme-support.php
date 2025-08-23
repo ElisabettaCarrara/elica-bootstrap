@@ -42,7 +42,7 @@ if ( ! function_exists('elica_bootstrap_theme_support') ) {
         'default-text-color' => '000000',
         'header-text'        => true,
         'height'             => 300, // recommended height (change as needed)
-        'width'              => 1200, // recommended width (change as needed)
+        'width'              => 900, // recommended width (change as needed)
         'flex-height'        => true,
         'flex-width'         => true,
     )
