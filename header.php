@@ -16,7 +16,7 @@ if ( function_exists( 'wp_body_open' ) ) {
 	<?php esc_html_e( 'Skip to content', 'elica-bootstrap' ); ?>
 </a>
 <?php
-$header_bg_color = get_theme_mod( 'elica-bootstrap_header_bg_color', '#ffffff' );
+$header_bg_color = get_theme_mod( 'elica_bootstrap_header_bg_color', '#ffffff' );
 ?>
 <header class="site-header" style="background-color: <?php echo esc_attr( $header_bg_color ); ?>;">
 	<div class="container header-wrapper">
