@@ -1,3 +1,14 @@
+.custom-header-image {
+  padding-top: 15px; /* Small space above the header image */
+}
+
+.custom-header-image img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 1rem;
+}
+
 .slider-container {
   position: relative;
   padding-top: 50px;
@@ -931,4 +942,5 @@ blockquote {
   .menu-toggle {
     display: block;
   }
+
 }
