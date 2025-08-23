@@ -29,6 +29,20 @@ Use it to make something cool, have fun, and share what you've learned with othe
 This theme is a fork of Elcar WordPress Theme by Tanveen Sorkar, specifically tailored to ClassicPress.
 */
 
+nav-search-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.main-navigation {
+    flex: 1;
+}
+
+.search-toggle {
+    flex-shrink: 0;
+}
+
 .alignright {
   float: right;
   margin: 1em;
