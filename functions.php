@@ -13,7 +13,7 @@ if ( ! function_exists( 'elica_bootstrap_enqueue_scripts' ) ) {
 	 */
 	function elica_bootstrap_enqueue_scripts() {
 		$theme_uri = get_template_directory_uri();
-		$version   = '1.0.0';
+		$version   = '1.1.0';
 
 		// ---------------------------
 		// Enqueue Stylesheets
