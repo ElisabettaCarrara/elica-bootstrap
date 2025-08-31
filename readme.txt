@@ -39,11 +39,13 @@ Elica-Bootstrap includes a custom header and footer via the ClassicPress Customi
 == Changelog ==
 
 = 1.2 =
-Corrected issues with Header Image and Header Background
-Corrected placement of Search Pop-up Icon in menu
+Add footer logo upload (defaults to site logo if footer logo not set, and to text link (site name) when site logo and footer logo are not set)
+Collated all CSS into one file, improved footer styling
 
 = 1.1 =
 Add screenshot
+Corrected issues with Header Image and Header Background
+Corrected placement of Search Pop-up Icon in menu
 
 = 1.0.0 =
 Initial release
