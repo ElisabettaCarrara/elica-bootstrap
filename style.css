@@ -3,7 +3,7 @@ Theme Name: Elica Bootstrap
 Author: Elisabetta Carrara
 Author URI: https://elica-webservices.it/
 Description: Elica Bootstrap is a modern, responsive Bootstrap-based ClassicPress theme ideal for blogs, portfolios, or business websites.
-Version: 1.2
+Version: 1.3
 Requires PHP: 8.2
 Requires CP: 2.0
 Tested up to: 2.4.1
@@ -12,63 +12,51 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, news, translation-ready
 Text Domain: elica-bootstrap
 Copyright (C) 2025 Elisabetta Carrara. Elica-Bootstrap ClassicPress theme is licensed under the GPL. 
+
 == Third Party Resources ==
-Bootstrap
-- Source: https://getbootstrap.com/
-- License: MIT
-Magnific Popup
-- Source: https://github.com/dimsemenov/Magnific-Popup
-- License: MIT
-Font Awesome
-- Source: https://fontawesome.com/
-- License: SIL OFL 1.1 / MIT / CC BY 4.0
+Bootstrap - MIT License
+Magnific Popup - MIT License
+Font Awesome - SIL OFL 1.1 / MIT / CC BY 4.0
 
 This theme, like ClassicPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
-
 This theme is a fork of Elcar WordPress Theme by Tanveen Sorkar, specifically tailored to ClassicPress.
 */
 
-nav-search-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+/*===============================================
+  Base & Reset Styles
+================================================*/
+
+body {
+  overflow-x: hidden;
+  font-family: Arial, sans-serif;
 }
 
-.main-navigation {
-    flex: 1;
-}
-
-.search-toggle {
-    flex-shrink: 0;
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid #0073aa;
+  outline-offset: 2px;
 }
 
 .alignright {
   float: right;
   margin: 1em;
 }
+
 .alignleft {
   float: left;
   margin: 1em;
 }
+
 .aligncenter {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
-.wp-caption {
-  background: #f9f9f9;
-  padding: 5px;
-}
-.wp-caption-text {
-  font-size: 0.9em;
-}
-.gallery-caption {
-  font-style: italic;
-}
-.bypostauthor {
-  font-weight: bold;
-}
+
 .screen-reader-text {
   position: absolute;
   left: -9999px;
@@ -77,12 +65,46 @@ nav-search-wrapper {
   height: 1px;
   overflow: hidden;
 }
+
+/* Caption styles */
+.wp-caption {
+  background: #f9f9f9;
+  padding: 5px;
+}
+
+.wp-caption-text {
+  font-size: 0.9em;
+}
+
+.gallery-caption {
+  font-style: italic;
+}
+
+.bypostauthor {
+  font-weight: bold;
+}
+
+/*===============================================
+  Containers & Layout Helpers
+================================================*/
+
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  box-sizing: border-box;
+}
+
+/* Pagination */
 .container .pagination {
   display: flex;
   justify-content: center;
   margin: 30px 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 .container .pagination ul {
   list-style: none;
   padding: 0;
@@ -90,9 +112,11 @@ nav-search-wrapper {
   display: flex;
   gap: 8px;
 }
+
 .container .pagination ul li {
   display: inline-block;
 }
+
 .container .pagination ul li a,
 .container .pagination ul li span {
   display: block;
@@ -105,86 +129,763 @@ nav-search-wrapper {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 .container .pagination ul li a:hover {
   background-color: #0073aa;
   color: #fff;
 }
+
 .container .pagination ul li .current {
   background-color: #0073aa;
   color: #fff;
   pointer-events: none;
   box-shadow: none;
 }
+
 .container .pagination ul li .dots {
   cursor: default;
   color: #999;
   background: transparent;
   box-shadow: none;
 }
+
+/*===============================================
+  Header Styles
+================================================*/
+
+header {
+  background-color: #f8f9fa;
+  padding: 15px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+header .container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.grif {
+  display: grid;
+}
+
+.grif img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Navigation Styles */
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav ul li a {
+  display: block;
+  padding: 15px 20px;
+  color: white;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Submenu Styles */
+nav ul li ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #444;
+  display: none;
+  min-width: 150px;
+  z-index: 1000;
+  flex-direction: column;
+}
+
+nav ul li:hover ul {
+  display: flex;
+}
+
+nav ul li ul li a {
+  padding: 10px 15px;
+  color: #fff;
+  border-bottom: 1px solid #555;
+}
+
+nav ul li ul li a:hover {
+  background-color: #555;
+}
+
+.btn {
+  float: right;
+  background-color: antiquewhite;
+}
+
+/* Mobile Menu and Hamburger */
+.hamburger {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+.mobile-menu {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    background: #fff;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+  }
+  .hamburger {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+  .mobile-menu.show {
+    display: flex;
+  }
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+  nav ul li ul {
+    position: static;
+  }
+  .btn-login {
+    margin-top: 15px;
+  }
+}
+
+/*===============================================
+  Slider Styles
+================================================*/
+
+.slider-container {
+  position: relative;
+  padding-top: 50px; /* space for arrows */
+}
+
+.slider {
+  margin-top: 20px;
+}
+
+.slide-box {
+  background-color: #f5f5f5;
+  padding: 40px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+/* Custom arrows */
+.custom-arrow {
+  position: absolute;
+  top: 0;
+  transform: translateY(-50%);
+  background-color: #007bff;
+  color: white;
+  padding: 8px 14px;
+  cursor: pointer;
+  z-index: 2;
+  border-radius: 5px;
+}
+
+.prev-arrow {
+  right: 60px;
+}
+
+.next-arrow {
+  right: 10px;
+}
+
+@media (max-width: 768px) {
+  .custom-arrow {
+    font-size: 20px;
+    padding: 6px 10px;
+  }
+}
+
+/*===============================================
+  Footer Styles (Improved & Unified)
+================================================*/
+
+.site-footer {
+  background-color: #222;
+  color: #fff;
+  padding: 60px 0 30px;
+  font-family: Arial, sans-serif;
+  /* Ensure footer uses container for alignment */
+}
+
+.site-footer > .container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Align footer logo container with header and body */
+.footer-logo {
+  flex: 0 0 auto;
+  max-width: 150px;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-logo img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0; /* Reset any existing margin */
+}
+
+.footer-column {
+  flex: 1 1 200px;
+}
+
+.footer-column h4 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.footer-menu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-menu li {
+  margin-bottom: 10px;
+}
+
+.footer-menu a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s;
+  position: relative;
+  display: inline-block;
+  padding-left: 0;
+}
+
+/* Underline effect on footer menu links */
+.footer-menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background-color: #fff;
+  transition: width 0.3s ease;
+}
+
+.footer-menu a:hover {
+  color: #fff;
+  padding-left: 5px;
+}
+
+.footer-menu a:hover::after {
+  width: 100%;
+}
+
+.footer-column p {
+  color: #ccc;
+  font-size: 15px;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #444;
+  margin-top: 30px;
+  font-size: 14px;
+  color: #aaa;
+}
+
+.footer-bottom a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .footer-logo {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+/*===============================================
+  Blog & Post Styles
+================================================*/
+
+.blog-section {
+  padding: 60px 20px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.blog-grid {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.blog-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.blog-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.blog-content {
+  padding: 20px;
+}
+
+.blog-category {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #0073e6;
+  padding: 5px 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
 .blog-title {
+  font-size: 20px;
+  margin: 10px 0;
+  color: #222;
   max-width: 100%;
   overflow-wrap: break-word;
   word-break: break-word;
   white-space: normal;
 }
+
 .blog-title a {
+  text-decoration: none;
+  color: inherit;
   display: inline-block;
   max-width: 100%;
   word-break: break-word;
   overflow-wrap: break-word;
   white-space: normal;
 }
-.post-title {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
-  word-break: break-word;
+
+.blog-excerpt {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 15px;
 }
-.comments-title {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
-  word-break: break-word;
-}
-.entry-content a,
-.comment-content a,
-.widget a {
-  text-decoration: underline;
-  color: #0073aa;
-}
-.entry-content a:hover {
+
+.read-more {
+  font-size: 14px;
+  color: #0073e6;
   text-decoration: none;
-  color: #005177;
+  font-weight: bold;
 }
-.skip-link {
-  position: absolute;
-  top: -40px;
-  left: 0;
-  background: #000;
+
+.read-more:hover {
+  text-decoration: underline;
+}
+
+/*===============================================
+  Pagination Styles
+================================================*/
+
+/* (Already covered above under containers) */
+
+/*===============================================
+  Blog Post Single Styles
+================================================*/
+
+.blog-post-container {
+  max-width: 800px;
+  margin: auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.post-title {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #222;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+}
+
+.post-meta {
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 20px;
+}
+
+.post-meta a {
+  color: #00aaff;
+  text-decoration: none;
+}
+
+.post-meta a:hover {
+  text-decoration: underline;
+}
+
+.post-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 25px;
+}
+
+.post-content p {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+.post-content h2 {
+  margin: 30px 0 15px;
+  color: #00aaff;
+  font-weight: 600;
+}
+
+blockquote {
+  border-left: 4px solid #00aaff;
+  padding-left: 15px;
+  margin: 25px 0;
+  color: #555;
+  font-style: italic;
+  background: #e6f7ff;
+  border-radius: 4px;
+}
+
+/*===============================================
+  Comments Styles
+================================================*/
+
+.comments-area {
+  margin-top: 40px;
+  background: #f9f9f9;
+  padding: 30px;
+  border-radius: 8px;
+}
+
+.comments-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.comment-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.comment-list .comment {
+  margin-bottom: 30px;
+  padding: 20px;
+  border: 1px solid #e2e2e2;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.comment-author {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.comment-author img {
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.comment-author .fn {
+  font-weight: bold;
+  color: #222;
+}
+
+.comment-meta {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.comment-content {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.comment-reply-link {
+  display: inline-block;
+  margin-top: 10px;
+  background: #0073aa;
   color: #fff;
-  padding: 8px 15px;
-  z-index: 1000;
+  padding: 5px 10px;
+  border-radius: 4px;
+  text-decoration: none;
 }
-.skip-link:focus {
-  top: 0;
+
+.comment-reply-link:hover {
+  background: #005a87;
 }
-a:focus,
-button:focus,
-input:focus,
-select:focus,
-textarea:focus {
-  outline: 2px solid #0073aa;
-  outline-offset: 2px;
+
+.comment-navigation {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
 }
-/* Desktop Navigation */
-.main-navigation li:focus-within>ul,
-.main-navigation li:hover>ul {
+
+/* Comment Form */
+.comment-respond {
+  margin-top: 40px;
+}
+
+.comment-respond h3 {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.comment-form label {
   display: block;
+  font-weight: 600;
+  margin-top: 10px;
 }
+
+.comment-form input[type="text"],
+.comment-form input[type="email"],
+.comment-form input[type="url"],
+.comment-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-top: 5px;
+}
+
+.comment-form textarea {
+  resize: vertical;
+  height: 120px;
+}
+
+.comment-form input[type="submit"] {
+  background: #0073aa;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.comment-form input[type="submit"]:hover {
+  background: #005a87;
+}
+
+.comment-list .children {
+  margin-left: 30px;
+  border-left: 2px solid #ddd;
+  padding-left: 20px;
+}
+
+/*===============================================
+  Login Popup Styles
+================================================*/
+
+.login-popup-overlay {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.login-popup-box {
+  background: #fff;
+  margin: 10% auto;
+  padding: 30px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 350px;
+  position: relative;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.login-popup-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+}
+
+.login-title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.login-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.login-submit {
+  width: 100%;
+  padding: 10px;
+  background: #0073aa;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.login-submit:hover {
+  background: #005c8a;
+}
+
+/*===============================================
+  Search Popup Styles
+================================================*/
+
+.search-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-popup-content {
+  background: white;
+  padding: 30px;
+  border-radius: 6px;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.close-search-popup {
+  position: absolute;
+  top: -10px;
+  right: 0px;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.popup-search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.popup-search-field {
+  padding: 12px 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.popup-search-submit {
+  background-color: #000;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.popup-search-submit:hover {
+  background-color: #333;
+}
+
+/*===============================================
+  Navigation Enhancements & Responsive Menu
+================================================*/
+
+.main-navigation {
+  display: block;
+  flex: 1;
+}
+
 .main-menu.desktop-menu {
   display: flex;
   gap: 20px;
@@ -192,88 +893,11 @@ textarea:focus {
   margin: 0;
   padding: 0;
 }
-.main-menu li a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 600;
-  padding: 10px 5px;
-  display: inline-block;
-}
-.main-menu li a:hover,
-.main-menu li a:focus {
-  color: #0073aa;
-}
-.nav {
-  background: none;
-}
-.site-title:focus,
-.site-title a:focus {
-  outline: 2px solid #0073aa;
-  outline-offset: 2px;
-}
-nav ul li ul li a:hover {
-  background-color: #dbdbdb;
-}
-.main-navigation ul ul {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: #fff;
-  min-width: 150px;
-  text-align: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-.main-navigation ul ul li {
-  display: block;
-  padding: 5px 15px;
-}
-.main-navigation ul ul li a {
-  display: block;
-  color: #333;
-  text-decoration: none;
-}
-.main-navigation ul ul li a:hover {
-  background: #f2f2f2;
-}
-#primary-menu .menu-item-has-children.open > .sub-menu {
-  display: block;
-}
-body {
-  overflow-x: hidden;
-}
-.menu-item-has-children {
+
+.main-menu.desktop-menu li {
   position: relative;
 }
-.menu-item-has-children > .sub-menu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 9999;
-  min-width: 180px; 
-  background: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-}
-.menu-item-has-children:hover > .sub-menu,
-.menu-item-has-children.focus > .sub-menu {
-  display: block;
-}
-.sub-menu .menu-item-has-children > .sub-menu {
-  top: 0;
-  left: 100%; 
-}
-.menu-item a:hover {
-  color: #fff;
-}
-/* Base Navigation */
-.main-menu {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: 20px;
-}
+
 .main-menu li a {
   text-decoration: none;
   color: #333;
@@ -281,7 +905,21 @@ body {
   padding: 10px 15px;
   display: block;
 }
-/* Hamburger Button */
+
+.main-menu li a:hover,
+.main-menu li a:focus {
+  color: #0073aa;
+}
+
+.menu-toggle {
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: none;
+}
+
+/* Mobile Menu */
 #mobile-menu-toggle {
   display: none;
   font-size: 26px;
@@ -290,7 +928,7 @@ body {
   color: #333;
   cursor: pointer;
 }
-/* Mobile Menu */
+
 @media (max-width: 768px) {
   #mobile-menu-toggle {
     display: block;
@@ -316,6 +954,7 @@ body {
     color: #000;
   }
 }
+
 @media (min-width: 769px) {
   .main-menu {
     display: flex !important;
@@ -324,11 +963,13 @@ body {
     box-shadow: none;
   }
 }
+
 @media (max-width: 768px) {
   .main-navigation {
     transition: all 0.3s ease;
   }
 }
+
 @media (max-width: 768px) {
   #primary-menu {
     display: none;
@@ -344,4 +985,102 @@ body {
   #primary-menu.active {
     display: flex;
   }
+}
+
+/*===============================================
+  Additional Utility Classes, Helpers, and Fixes
+================================================*/
+
+/* Navigation submenu display and styling */
+.main-navigation li:focus-within > ul,
+.main-navigation li:hover > ul {
+  display: block;
+}
+
+.main-navigation ul ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  min-width: 150px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 10000;
+}
+
+.main-navigation ul ul li {
+  display: block;
+  padding: 5px 15px;
+}
+
+.main-navigation ul ul li a {
+  display: block;
+  color: #333;
+  text-decoration: none;
+}
+
+.main-navigation ul ul li a:hover {
+  background: #f2f2f2;
+}
+
+#primary-menu .menu-item-has-children.open > .sub-menu {
+  display: block;
+}
+
+.menu-item-has-children {
+  position: relative;
+}
+
+.menu-item-has-children > .sub-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 9999;
+  min-width: 180px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.menu-item-has-children:hover > .sub-menu,
+.menu-item-has-children.focus > .sub-menu {
+  display: block;
+}
+
+.sub-menu .menu-item-has-children > .sub-menu {
+  top: 0;
+  left: 100%;
+}
+
+.menu-item a:hover {
+  color: #fff;
+}
+
+/* Text colors & highlight */
+.entry-content a,
+.comment-content a,
+.widget a {
+  text-decoration: underline;
+  color: #0073aa;
+}
+
+.entry-content a:hover {
+  text-decoration: none;
+  color: #005177;
+}
+
+/* Skip link for accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000;
+  color: #fff;
+  padding: 8px 15px;
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  top: 0;
 }

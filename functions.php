@@ -13,7 +13,7 @@ if ( ! function_exists( 'elica_bootstrap_enqueue_scripts' ) ) {
 	 */
 	function elica_bootstrap_enqueue_scripts() {
 		$theme_uri = get_template_directory_uri();
-		$version   = '1.1.0';
+		$version   = '1.3.0';
 
 		// ---------------------------
 		// Enqueue Stylesheets
@@ -30,14 +30,6 @@ if ( ! function_exists( 'elica_bootstrap_enqueue_scripts' ) ) {
 		wp_enqueue_style(
 			'elica-bootstrap-fontawesome',
 			$theme_uri . '/css/fontawesome.min.css',
-			array(),
-			$version,
-			'all'
-		);
-
-		wp_enqueue_style(
-			'elica-bootstrap-style',
-			$theme_uri . '/css/style.css',
 			array(),
 			$version,
 			'all'
