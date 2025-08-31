@@ -36,14 +36,6 @@ if ( ! function_exists( 'elica_bootstrap_enqueue_scripts' ) ) {
 		);
 
 		wp_enqueue_style(
-			'elica-bootstrap-style',
-			$theme_uri . '/css/style.css',
-			array(),
-			$version,
-			'all'
-		);
-
-		wp_enqueue_style(
 			'elica-bootstrap-theme-style',
 			get_stylesheet_uri(),
 			array(),
