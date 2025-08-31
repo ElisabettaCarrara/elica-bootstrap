@@ -2,7 +2,7 @@
 
 Contributors: Elisabetta Carrara
 Tags: blog, news, personal, simple, customizer, responsive, translation-ready, RTL, accessibility-ready
-Version: 1.2
+Version: 1.3
 Requires PHP: 8.2
 Requires CP: 2.0
 Tested up to: 2.4.1
@@ -38,14 +38,17 @@ Elica-Bootstrap includes a custom header and footer via the ClassicPress Customi
 
 == Changelog ==
 
+= 1.3 =
+Add footer logo upload control (displays in the footer, if not set defaults to site logo; in case site logo is not set displays site name text link)
+Collated style.css with css/style.css
+Improved footer styles
+
 = 1.2 =
-Add footer logo upload (defaults to site logo if footer logo not set, and to text link (site name) when site logo and footer logo are not set)
-Collated all CSS into one file, improved footer styling
+Corrected issues with Header Image and Header Background
+Corrected placement of Search Pop-up Icon in menu
 
 = 1.1 =
 Add screenshot
-Corrected issues with Header Image and Header Background
-Corrected placement of Search Pop-up Icon in menu
 
 = 1.0.0 =
 Initial release
