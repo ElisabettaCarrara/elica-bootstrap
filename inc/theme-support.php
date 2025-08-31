@@ -70,7 +70,6 @@ if ( ! function_exists('elica_bootstrap_theme_setup') ) {
     }
 }
 
-add_action('customize_register', 'elica_bootstrap_footer_customizer');
 if ( ! function_exists('elica_bootstrap_footer_customizer') ) {
     /**
      * Register footer customization options in the Customizer.
@@ -88,16 +87,39 @@ if ( ! function_exists('elica_bootstrap_footer_customizer') ) {
                 'priority'    => 160,
             )
         );
-
+        
+        // Footer Logo Setting
+        $wp_customize->add_setting(
+            'elica_bootstrap_footer_logo',
+            array(
+                'sanitize_callback' => 'absint',
+                'type'              => 'theme_mod',
+            )
+        );
+        // Footer Logo Control
+        $wp_customize->add_control(
+            new WP_Customize_Image_Control(
+                $wp_customize,
+                'elica_bootstrap_footer_logo_control',
+                array(
+                    'label'       => esc_html__('Footer Logo', 'elica-bootstrap'),
+                    'description' => esc_html__('Select a separate logo for the footer. If not set, site identity logo is used.', 'elica-bootstrap'),
+                    'section'     => 'elica_bootstrap_footer_section',
+                    'settings'    => 'elica_bootstrap_footer_logo',
+                    'priority'    => 1, // Appear at the top of the section.
+                )
+            )
+        );
+        
         // Footer Copyright Text.
-$wp_customize->add_setting(
-    'elica_bootstrap_footer_copyright',
-    array(
-        'default'           => '© ' . date_i18n( 'Y' ) . ' Elica-Bootstrap. All rights reserved.',
-        'sanitize_callback' => 'sanitize_text_field',
-        'type'              => 'theme_mod',
-    )
-);
+        $wp_customize->add_setting(
+            'elica_bootstrap_footer_copyright',
+            array(
+                'default'           => '© ' . date_i18n( 'Y' ) . ' Elica-Bootstrap. All rights reserved.',
+                'sanitize_callback' => 'sanitize_text_field',
+                'type'              => 'theme_mod',
+            )
+        );
         $wp_customize->add_control(
             'elica_bootstrap_footer_copyright_control',
             array(
@@ -107,7 +129,6 @@ $wp_customize->add_setting(
                 'type'     => 'text',
             )
         );
-
         // Footer Background Color.
         $wp_customize->add_setting(
             'elica_bootstrap_footer_bg_color',
@@ -128,7 +149,6 @@ $wp_customize->add_setting(
                 )
             )
         );
-
         // Footer Menu Title 1.
         $wp_customize->add_setting(
             'elica_bootstrap_footer_menu_title_1',
@@ -145,7 +165,6 @@ $wp_customize->add_setting(
                 'type'    => 'text',
             )
         );
-
         // Footer Menu Title 2.
         $wp_customize->add_setting(
             'elica_bootstrap_footer_menu_title_2',
@@ -162,7 +181,6 @@ $wp_customize->add_setting(
                 'type'    => 'text',
             )
         );
-
         // Footer Description Title.
         $wp_customize->add_setting(
             'elica_bootstrap_footer_description_title',
@@ -179,7 +197,6 @@ $wp_customize->add_setting(
                 'type'    => 'text',
             )
         );
-
         // Footer Description Text.
         $wp_customize->add_setting(
             'elica_bootstrap_footer_description',
