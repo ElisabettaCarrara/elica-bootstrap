@@ -4,7 +4,7 @@
 
 **Contributors:** Elisabetta Carrara  
 **Tags:** blog, news, personal, simple, customizer, responsive, translation-ready, RTL, accessibility-ready  
-**Version:** 1.3.1
+**Version:** 1.3.2
 **Requires PHP:** 8.2  
 **Requires CP:** 2.0  
 **Tested up to:** 2.4.1  
@@ -51,7 +51,11 @@ Yes. A .pot file is included for easy translation.
 
 ## Changelog
 
-### 1.3
+### 1.3.2
+
+- Corrected Footer Description textarea to accept HTML formatting
+
+### 1.3.1
 
 - Add footer logo upload control (displays in the footer, if not set defaults to site logo; in case site logo is not set displays site name text link)  
 - Collated style.css with css/style.css  
