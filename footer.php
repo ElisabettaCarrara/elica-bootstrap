@@ -51,7 +51,7 @@
 			<!-- Text/Info Column -->
 			<div class="footer-column">
 				<h4><?php echo esc_html( get_theme_mod( 'elica_bootstrap_footer_description_title', 'Footer Description' ) ); ?></h4>
-				<p><?php echo esc_html( get_theme_mod( 'elica_bootstrap_footer_description', 'This is the footer description text.' ) ); ?></p>
+				<?php echo wp_kses_post( get_theme_mod( 'elica_bootstrap_footer_description', 'This is the footer description text.' ) ); ?>
 			</div>
 		</div>
 	</div>

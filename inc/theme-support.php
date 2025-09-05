@@ -237,7 +237,7 @@ if ( ! function_exists( 'elica_bootstrap_customizer_register' ) ) {
 			'elica_bootstrap_footer_description',
 			array(
 				'default'           => esc_html__( 'This is the footer description text.', 'elica-bootstrap' ),
-				'sanitize_callback' => 'sanitize_textarea_field',
+				'sanitize_callback' => 'wp_kses_post',
 			)
 		);
 
