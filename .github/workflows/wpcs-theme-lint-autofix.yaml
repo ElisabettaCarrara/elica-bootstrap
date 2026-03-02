@@ -53,7 +53,7 @@ jobs:
       # Initial scan
       - name: PHPCS - initial scan
         run: |
-          phpcs ./ \
+          phpcs \
             --standard=.phpcs.xml.dist \
             --colors \
             --report=summary || true
@@ -61,7 +61,7 @@ jobs:
       # Autofix
       - name: PHPCBF - autofix
         run: |
-          phpcbf ./ \
+          phpcbf \
             --standard=.phpcs.xml.dist \
             --no-patch || true
 
@@ -76,7 +76,7 @@ jobs:
       # Final scan
       - name: PHPCS - final scan (fail if errors remain)
         run: |
-          phpcs ./ \
+          phpcs \
             --standard=.phpcs.xml.dist \
             --colors \
             --report=full
