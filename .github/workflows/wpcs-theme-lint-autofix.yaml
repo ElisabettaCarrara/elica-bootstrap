@@ -1,0 +1,82 @@
+name: "WPCS Theme Lint + Autofix"
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  lint-fix-lint:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    if: "!contains(github.event.head_commit.message, 'PHPCBF auto-fixes')"
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up PHP 8.4
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+
+      - name: Cache Composer global
+        uses: actions/cache@v4
+        with:
+          path: ~/.composer
+          key: ${{ runner.os }}-composer-global
+
+      # ---------------- PHPCS GLOBAL INSTALL ----------------
+      - name: Install PHPCS globally
+        run: |
+          composer global config --no-plugins allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
+          composer global config --no-plugins allow-plugins.composer/installers true
+          composer global require \
+            "squizlabs/php_codesniffer:^3.10" \
+            "wp-coding-standards/wpcs:^3.1" \
+            "phpcompatibility/phpcompatibility-wp:^2.1" \
+            --no-interaction --prefer-dist --no-progress
+
+      - name: Setup PATH
+        run: |
+          echo "$HOME/.composer/vendor/bin" >> $GITHUB_PATH
+          echo "$HOME/.config/composer/vendor/bin" >> $GITHUB_PATH
+
+      # Initial scan
+      - name: PHPCS - initial scan
+        run: |
+          phpcs ./ \
+            --standard=.phpcs.xml.dist \
+            --colors \
+            --report=summary || true
+
+      # Autofix
+      - name: PHPCBF - autofix
+        run: |
+          phpcbf ./ \
+            --standard=.phpcs.xml.dist \
+            --no-patch || true
+
+      # Commit auto-fixes (main only)
+      - name: Commit auto-fixes
+        if: github.ref == 'refs/heads/main'
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: PHPCBF auto-fixes [skip ci]"
+          file_pattern: "**/*.php"
+
+      # Final scan
+      - name: PHPCS - final scan (fail if errors remain)
+        run: |
+          phpcs ./ \
+            --standard=.phpcs.xml.dist \
+            --colors \
+            --report=full
