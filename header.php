@@ -61,7 +61,7 @@ $header_bg_color = get_theme_mod( 'elica_bootstrap_header_bg_color', '#ffffff' )
 					'menu_class'     => 'main-menu',
 					'menu_id'        => 'primary-menu',
 					'container'      => true,
-					'fallback_cb'    => 'elica-bootstrap_efc',
+					'fallback_cb'    => 'elica_bootstrap_efc',
 				)
 			);
 			?>
